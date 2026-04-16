@@ -59,8 +59,6 @@ void merge(int left, int mid, int right) {
 }
 
 void merge_sort(int left, int right) {
-    // TODO: 在这里添加你的代码
-    // I AM NOT DONE
     if (left < right) {
         int mid = (right + left) / 2;
         merge_sort(left, mid);

@@ -8,8 +8,6 @@ typedef struct {
 } Student;
 
 void insertion_sort(Student students[], int n) {
-    // TODO: 在这里添加你的代码
-    // I AM NOT DONE
     for (size_t i = 0; i < n; i++) {
         /* code */
         Student key = students[i];
