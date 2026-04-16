@@ -32,7 +32,7 @@ void merge(int left, int mid, int right) {
     }
 
     while (l_n < n1 && r_n < n2) {
-        if (l[l_n].score <= r[r_n].score) {
+        if (l[l_n].score >= r[r_n].score) {
             students[k] = l[l_n];
             l_n++;
         } else {

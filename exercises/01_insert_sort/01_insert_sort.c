@@ -12,7 +12,7 @@ void insertion_sort(Student students[], int n) {
         /* code */
         Student key = students[i];
         int j = i - 1;
-        while (j >= 0 && key.score < students[j].score) {
+        while (j >= 0 && key.score > students[j].score) {
             students[j + 1] = students[j];
             j--;
         }
