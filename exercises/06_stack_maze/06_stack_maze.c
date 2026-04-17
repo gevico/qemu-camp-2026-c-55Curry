@@ -16,7 +16,7 @@ int top = -1;
 
 Point predecessor[MAX_ROW][MAX_COL];
 
-void push(Point p) { stack[top++] = p; }
+void push(Point p) { stack[++top] = p; }
 
 Point pop() { return stack[top--]; }
 
