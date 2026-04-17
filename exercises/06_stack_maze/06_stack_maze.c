@@ -55,7 +55,7 @@ void solve() {
             int nr = dr[i] + curr.r;
             int nc = dc[i] + curr.c;
 
-            if (nr >= 0 && nr < MAX_ROW && nc >= 0 && nc < MAX_COL) {
+            if (nr >= 0 && nr < MAX_ROW && nc >= 0 && nc < MAX_COL && maze[nr][nc] == 0) {
                 /* code */
                 maze[nr][nc] = 2;
                 push((Point){nr, nc});
