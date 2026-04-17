@@ -42,7 +42,7 @@ void solve() {
         if (end.c == curr.c && end.r == curr.r) {
             Point p = end;
             while (p.r != -1) {
-                printf("(%d, %d)", p.r, p.c);
+                printf("(%d, %d)\n", p.r, p.c);
                 p = predecessor[p.r][p.c];
             }
             return;
