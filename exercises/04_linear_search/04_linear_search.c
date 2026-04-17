@@ -25,13 +25,13 @@ int linear_search(const char *target_name) {
 int main(void) {
     FILE *file = fopen("04_students.txt", "r");
     if (!file) {
-        printf("´íÎó£ºÎŞ·¨´ò¿ªÎÄ¼ş 04_students.txt\n");
+        printf("é”™è¯¯ï¼šæ— æ³•æ‰“å¼€æ–‡ä»¶ 04_students.txt\n");
         return 1;
     }
 
     fscanf(file, "%d", &n);
     if (n <= 0 || n > MAX_STUDENTS) {
-        printf("Ñ§ÉúÈËÊıÎŞĞ§£º%d\n", n);
+        printf("å­¦ç”Ÿäººæ•°æ— æ•ˆï¼š%d\n", n);
         fclose(file);
         return 1;
     }
@@ -45,11 +45,11 @@ int main(void) {
 
     int index = linear_search(query_name);
 
-    printf("\nÏßĞÔ²éÕÒ³öµÄÑ§ÉúĞÅÏ¢£º\n");
+    printf("\nçº¿æ€§æŸ¥æ‰¾å‡ºçš„å­¦ç”Ÿä¿¡æ¯ï¼š\n");
     if (index != -1) {
-        printf("ĞÕÃû£º%s£¬³É¼¨£º%d\n", students[index].name, students[index].score);
+        printf("å§“åï¼š%sï¼Œæˆç»©ï¼š%d\n", students[index].name, students[index].score);
     } else {
-        printf("Î´ÕÒµ½¸ÃÑ§Éú\n");
+        printf("æœªæ‰¾åˆ°è¯¥å­¦ç”Ÿ\n");
     }
 
     return 0;
