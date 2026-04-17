@@ -3,7 +3,7 @@
 #include <string.h>
 
 #define MAX_STUDENTS 50
-#define NAME_LEN     50
+#define NAME_LEN 50
 
 typedef struct {
     char name[NAME_LEN];
@@ -12,21 +12,26 @@ typedef struct {
 
 Student students[MAX_STUDENTS];
 int n;
+
 int linear_search(const char *target_name) {
-    // TODO: åœ¨è¿™é‡Œæ·»åŠ ä½ çš„ä»£ç 
-    // I AM NOT DONE
+    for (size_t i = 0; i < n; i++) {
+        if (strcmp(target_name, students[i].name) == 0) {
+            return 1;
+        }
+    }
+    return -1;
 }
 
 int main(void) {
     FILE *file = fopen("04_students.txt", "r");
     if (!file) {
-        printf("é”™è¯¯ï¼šæ— æ³•æ‰“å¼€æ–‡ä»¶ 04_students.txt\n");
+        printf("´íÎó£ºÎŞ·¨´ò¿ªÎÄ¼ş 04_students.txt\n");
         return 1;
     }
 
     fscanf(file, "%d", &n);
     if (n <= 0 || n > MAX_STUDENTS) {
-        printf("å­¦ç”Ÿäººæ•°æ— æ•ˆï¼š%d\n", n);
+        printf("Ñ§ÉúÈËÊıÎŞĞ§£º%d\n", n);
         fclose(file);
         return 1;
     }
@@ -40,11 +45,11 @@ int main(void) {
 
     int index = linear_search(query_name);
 
-    printf("\nçº¿æ€§æŸ¥æ‰¾å‡ºçš„å­¦ç”Ÿä¿¡æ¯ï¼š\n");
+    printf("\nÏßĞÔ²éÕÒ³öµÄÑ§ÉúĞÅÏ¢£º\n");
     if (index != -1) {
-        printf("å§“åï¼š%sï¼Œæˆç»©ï¼š%d\n", students[index].name, students[index].score);
+        printf("ĞÕÃû£º%s£¬³É¼¨£º%d\n", students[index].name, students[index].score);
     } else {
-        printf("æœªæ‰¾åˆ°è¯¥å­¦ç”Ÿ\n");
+        printf("Î´ÕÒµ½¸ÃÑ§Éú\n");
     }
 
     return 0;

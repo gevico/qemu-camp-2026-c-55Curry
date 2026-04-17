@@ -14,44 +14,47 @@ Student students[MAX_STUDENTS];
 Student temp[MAX_STUDENTS];
 
 void merge(int left, int mid, int right) {
-    int r_n = 0, l_n = 0, k = left;
+    int l_n = mid - left + 1;
+    int r_n = right - mid;
 
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
+    Student *l = malloc(sizeof(Student) * l_n);
+    Student *r = malloc(sizeof(Student) * r_n);
 
-    Student *l = malloc(sizeof(Student) * n1);
-    Student *r = malloc(sizeof(Student) * n2);
-
-    for (size_t i = 0; i < n1; i++) {
-        l[i] = students[i + left];
-    }
-
-    for (size_t i = 0; i < n2; i++) {
+    for (size_t i = 0; i < l_n; i++) {
         /* code */
-        r[i] = students[i + mid + 1];
+        l[i] = students[left + i];
     }
 
-    while (l_n < n1 && r_n < n2) {
-        if (l[l_n].score >= r[r_n].score) {
-            students[k] = l[l_n];
-            l_n++;
+    for (size_t i = 0; i < r_n; i++) {
+        /* code */
+        r[i] = students[mid + i + 1];
+    }
+
+    int n = 0, m = 0, k = left;
+
+    while (n < l_n && m < r_n) {
+        if (l[n].score >= r[m].score) {
+            students[k] = l[n];
+            n++;
         } else {
-            students[k] = r[r_n];
-            r_n++;
+            students[k] = r[m];
+            m++;
         }
         k++;
     }
 
-    while (l_n < n1) {
-        students[k] = l[l_n];
-        l_n++;
+    while (n < l_n) {
+        /* code */
+        students[k] = l[n];
         k++;
+        n++;
     }
 
-    while (r_n < n2) {
-        students[k] = r[r_n];
-        r_n++;
+    while (m < r_n) {
+        /* code */
+        students[k] = r[m];
         k++;
+        m++;
     }
 
     free(l);
@@ -59,13 +62,17 @@ void merge(int left, int mid, int right) {
 }
 
 void merge_sort(int left, int right) {
-    if (left < right) {
-        int mid = (right + left) / 2;
-        merge_sort(left, mid);
-        merge_sort(mid + 1, right);
-
-        merge(left, mid, right);
+    if (left >= right) {
+        /* code */
+        return;
     }
+
+    int mid = (left + right) / 2;
+
+    merge_sort(left, mid);
+    merge_sort(mid + 1, right);
+
+    merge(left, mid, right);
 }
 
 int main(void) {
