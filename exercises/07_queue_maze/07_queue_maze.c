@@ -71,8 +71,6 @@ void solve() {
 }
 
 int main(void) {
-    // TODO: 在这里添加你的代码
-    // I AM NOT DONE
     solve();
     return 0;
 }
