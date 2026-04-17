@@ -23,7 +23,7 @@ int partition(int left, int right) {
 
     int j = left - 1;
     for (int i = left; i < right; i++) {
-        if (count >= students[i].score) {
+        if (count <= students[i].score) {
             j++;
             swap(&students[i], &students[j]);
         }
@@ -46,7 +46,7 @@ void quick_sort(int left, int right) {
 int main(void) {
     FILE *file = fopen("03_students.txt", "r");
     if (!file) {
-        printf("é”™è¯¯ï¼šæ— æ³•æ‰“å¼€æ–‡ä»¶ 03_students.txt\n");
+        printf("´íÎó£ºÎŞ·¨´ò¿ªÎÄ¼ş 03_students.txt\n");
         return 1;
     }
 
@@ -54,7 +54,7 @@ int main(void) {
     fscanf(file, "%d", &n);
 
     if (n <= 0 || n > MAX_STUDENTS) {
-        printf("å­¦ç”Ÿäººæ•°æ— æ•ˆï¼š%dï¼ˆåº”ä¸º 1-%dï¼‰\n", n, MAX_STUDENTS);
+        printf("Ñ§ÉúÈËÊıÎŞĞ§£º%d£¨Ó¦Îª 1-%d£©\n", n, MAX_STUDENTS);
         fclose(file);
         return 1;
     }
@@ -66,8 +66,8 @@ int main(void) {
 
     quick_sort(0, n - 1);
 
-    // è¾“å‡ºç»“æœ
-    printf("\nå¿«é€Ÿæ’åºåæŒ‰æˆç»©ä»é«˜åˆ°ä½æ’åºçš„å­¦ç”Ÿåå•ï¼š\n");
+    // Êä³ö½á¹û
+    printf("\n¿ìËÙÅÅĞòºó°´³É¼¨´Ó¸ßµ½µÍÅÅĞòµÄÑ§ÉúÃûµ¥£º\n");
     for (int i = 0; i < n; i++) {
         printf("%s %d\n", students[i].name, students[i].score);
     }
