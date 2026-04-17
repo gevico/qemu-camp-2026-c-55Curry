@@ -19,11 +19,13 @@ int tail = 0;
 
 void enqueue(Point p) { queue[tail++] = p; }
 
-Point dequeue() { queue[head++]; }
+Point dequeue() { return queue[head++]; }
 
 bool is_empty() { return head == tail; }
 
-bool is_vail(int c, int r) { return (c >= 0 && c < MAX_COL && r >= 0 && r < MAX_ROW && visited[r][c] == 0); }
+bool is_vail(int c, int r) {
+    return (c >= 0 && c < MAX_COL && r >= 0 && r < MAX_ROW && visited[r][c] == 0 && maze[r][c] == 0);
+}
 
 void printf_path(int index) {
     if (queue[index].pre != -1) {
@@ -59,14 +61,13 @@ void solve() {
             int next_c = cur.c + dc[i];
 
             if (is_vail(next_c, next_r)) {
-                visited[next_r][next_c] == 1;
+                visited[next_r][next_c] = 1;
                 Point next_p = {next_r, next_c, current_index};
                 enqueue(next_p);
             }
         }
     }
     if (!found) printf("没有可行路径。\n");
-    return 0;
 }
 
 int main(void) {
