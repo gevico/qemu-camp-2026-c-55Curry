@@ -11,7 +11,7 @@ typedef struct {
 int main() {
     FILE *file = fopen("students.txt", "r");
     if (file == NULL) {
-        printf("ÎÞ·¨´ò¿ªÎÄ¼þ\n");
+        printf("æ— æ³•æ‰“å¼€æ–‡ä»¶\n");
         return 1;
     }
 
@@ -25,7 +25,7 @@ int main() {
     }
 
     for (int i = 0; i < 3; i++) {
-        printf("Ñ§ºÅ£º%s, ÐÕÃû£º%s, ÄêÁä£º%d\n", students[i]->id, students[i]->name, students[i]->age);
+        printf("å­¦å·ï¼š%s, å§“åï¼š%s, å¹´é¾„ï¼š%d\n", students[i]->id, students[i]->name, students[i]->age);
     }
 
     for (int i = 0; i < 3; i++) {

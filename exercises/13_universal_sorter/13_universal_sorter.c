@@ -4,22 +4,16 @@
 
 typedef int (*CompareFunc)(const void *, const void *);
 
-int compareInt(const void *a, const void *b) {
-    return (*(int*)a - *(int*)b);
-}
+int compareInt(const void *a, const void *b) { return (*(int *)a - *(int *)b); }
 
 int compareFloat(const void *a, const void *b) {
-    float diff = (*(float*)a - *(float*)b);
+    float diff = (*(float *)a - *(float *)b);
     return (diff > 0) ? 1 : ((diff < 0) ? -1 : 0);
 }
 
-int compareString(const void *a, const void *b) {
-    return strcmp(*(char**)a, *(char**)b);
-}
+int compareString(const void *a, const void *b) { return strcmp(*(char **)a, *(char **)b); }
 
-void sort(void *array, size_t n, size_t size, CompareFunc compare) {
-    qsort(array, n, size, compare);
-}
+void sort(void *array, size_t n, size_t size, CompareFunc compare) { qsort(array, n, size, compare); }
 
 void processFile(const char *filename) {
     FILE *fin = fopen(filename, "r");
@@ -42,6 +36,24 @@ void processFile(const char *filename) {
     switch (choice) {
         // TODO: 在这里添加你的代码
         // I AM NOT DONE
+        case 1: {
+            int data[20];
+            for (size_t i = 0; i < n; i++) {
+                fscanf(fin, "%d", data[i]);
+            }
+
+            sort(data, n, sizeof(int), compareInt);
+            break;
+        }
+        case 2: {
+            float data[20];
+            for (size_t i = 0; i < n; i++) {
+                fscanf(fin, "%d", data[i]);
+            }
+
+            sort(data, n, sizeof(int), compareFloat);
+            break;
+        }
     }
 
     fclose(fin);
