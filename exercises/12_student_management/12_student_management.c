@@ -11,31 +11,26 @@ typedef struct {
 int main() {
     FILE *file = fopen("students.txt", "r");
     if (file == NULL) {
-        printf("æ— æ³•æ‰“å¼€æ–‡ä»¶\n");
+        printf("ÎÞ·¨´ò¿ªÎÄ¼þ\n");
         return 1;
     }
-    
+
     Student *students[3];
-    
-    for (int i = 0; i < 3; i++) 
-    {
-	    // TODO: åœ¨è¿™é‡Œæ·»åŠ ä½ çš„ä»£ç 
-        // I AM NOT DONE
+
+    for (int i = 0; i < 3; i++) {
+        students[i] = malloc(sizeof(Student));
+        if (fscanf(file, "%s %s %d", students[i]->id, students[i]->name, &students[i]->age) != 3) {
+            break;
+        }
     }
-    fclose(file);
-    
-    for (int i = 0; i < 3; i++) 
-    {
-        printf("å­¦å·ï¼š%s, å§“åï¼š%s, å¹´é¾„ï¼š%d\n", 
-               students[i]->id, 
-               students[i]->name, 
-               students[i]->age);
+
+    for (int i = 0; i < 3; i++) {
+        printf("Ñ§ºÅ£º%s, ÐÕÃû£º%s, ÄêÁä£º%d\n", students[i]->id, students[i]->name, students[i]->age);
     }
-    
-    for (int i = 0; i < 3; i++) 
-    {
+
+    for (int i = 0; i < 3; i++) {
         free(students[i]);
     }
-    
+
     return 0;
 }
